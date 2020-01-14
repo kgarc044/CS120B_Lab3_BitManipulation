@@ -31,12 +31,16 @@ int main(void) {
 	tmpC = PORTC;
 	countTotal = 0x00;
 	countTotal2 = 0x00;
-	for (increment = 0x00; increment < 0x08; ++increment) {
-		countTotal = countTotal +  ((tmpA << increment) & 0x01);
-		tmpA = tmpA >> increment;
-		countTotal2 = countTotal + ((tmpB << increment) & 0x01);
-		tmpB = tmpB >> increment;
+	for (increment = 0x00; increment < 0x08; increment = increment + 0x01) {
+		countTotal = countTotal +  ((tmpA >> increment) & 0x01);
+		//tmpA = tmpA << increment;
 	}
+	increment = 0x00;
+	for (increment = 0x00; increment < 0x08; increment = increment + 0x01) {
+                countTotal2 = countTotal2 + ((tmpB >> increment) & 0x01);
+                //tmpB = tmpB << increment;
+        }
+
 	tmpC = countTotal + countTotal2;
 	PORTC = tmpC;
     }
