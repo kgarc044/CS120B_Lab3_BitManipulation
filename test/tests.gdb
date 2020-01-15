@@ -21,7 +21,12 @@
 #       Example: printPORTC d
 #   printDDRx
 #       With x as the DDR (A,B,C,D)
-#       Example: printDDRB
+#
+#
+#
+#
+#
+
 
 echo ======================================================\n
 echo Running all tests..."\n\n
@@ -32,6 +37,27 @@ setPIND 0x46
 continue 2
 expectPORTB 0x02
 checkResult
+
+test "PIND: 0x5A => PORTB: 0x02"
+setPIND 0x5A
+continue 2
+expectPORTB 0x02
+checkResult
+
+test "PIND: 0x32 => PORTB: 0x04"
+setPIND 0x32
+continue 2
+expectPORTB 0x04
+checkResult
+
+test "PIND: 0x22 => PORTB: 0x04"
+setPIND 0x22
+continue 2
+expectPORTB 0x04
+checkResult
+
+
+
 
 # Report on how many tests passed/tests ran
 set $passed=$tests-$failed

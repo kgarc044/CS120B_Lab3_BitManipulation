@@ -26,7 +26,7 @@ int main(void) {
 		weightSensor = PIND << 1;
 		tempVar = PINB & 0x01;
 
-		weightSensor = weightSensor | temp;
+		weightSensor = weightSensor | tempVar;
 
 		if (weightSensor >= 0x0046){
 			out = 0x02;
