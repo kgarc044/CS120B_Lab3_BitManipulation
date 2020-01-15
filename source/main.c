@@ -15,19 +15,30 @@
 
 int main(void) {
 
-	DDRA = 0x00; PORTA = 0xFF;
-	DDRB = 0xFF; PORTB = 0x00;
-	DDRC = 0xFF; PORTC = 0x00;
+	DDRD = 0x00; PORTD = 0xFF;
+	DDRB = 0xFE; PORTB = 0x01;
 
-	unsigned char partB = 0x00;
-	unsigned char partC = 0x00;
+	unsigned short weightSensor = 0x0000;
+	unsigned char tempVar = 0x00;
+	unsigned char out = 0x00;
 
 	while(1) {
-		partB = (PINA & 0xF0) >> 4;
-		partC = (PINA & 0x0F) << 4;
+		weightSensor = PIND << 1;
+		tempVar = PINB & 0x01;
 
-		PORTB = partB;
-		PORTC = partC;
+		weightSensor = weightSensor | temp;
+
+		if (weightSensor >= 0x0046){
+			out = 0x02;
+		}
+		else if ((weightSensor < 0x0046) && (weightSensor > 0x0005)){
+			out = 0x04;
+		}
+
+		PORTB = out;
+		out = 0x01;
+		weightSensor = 0x0000;
+		
 
 	}
 
