@@ -1,7 +1,7 @@
-/*	Author: kgarc044
- *  Partner(s) Name: Richard and Bryant
- *	Lab Section:
- *	Assignment: Lab #  Exercise #
+/*	Author: rmanz004
+ *  Partner(s) Name:Kyle and Bryant
+ *	Lab Section: 022
+ *	Assignment: Lab #3  Exercise #1
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
